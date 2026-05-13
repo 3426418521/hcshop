@@ -1,0 +1,218 @@
+# ============================================
+# ShopXO 商城自动化测试数据配置文件
+# ============================================
+
+# --------------------------------------------
+# 1. 用户信息
+# --------------------------------------------
+users:
+  # 普通用户（用于大部分测试）
+  normal_user:
+    accounts: "3426418521"
+    password: "WHLSDMN8"
+    type: "username"
+    nickname: "测试用户001"
+    email: "test001@example.com"
+    phone: "13800138001"
+
+  # 管理员用户（用于后台管理测试）
+  admin_user:
+    accounts: "admin"
+    password: "admin123"
+    type: "username"
+
+  # 错误密码用户（用于异常测试）
+  wrong_user:
+    accounts: "test001"
+    password: "wrong_password"
+    type: "username"
+
+  # 不存在的用户
+  not_exist_user:
+    accounts: "not_exist_user_99999"
+    password: "WHLSDMN8"
+    type: "username"
+
+# --------------------------------------------
+# 2. 商品信息
+# --------------------------------------------
+products:
+  # 搜索测试关键词
+  search_keywords:
+    - "手机"
+    - "iPhone"
+    - "小米"
+    - "零食"
+    - "服装"
+
+  # 具体商品（用于加购、下单）
+  test_product:
+    id: 1
+    title: "测试商品"
+    keywords: "手机"
+
+  # 热门商品分类
+  hot_category:
+    - "数码办公"
+    - "服饰鞋包"
+    - "食品饮料"
+    - "个护化妆"
+
+  # 商品规格
+  default_spec: "默认"
+
+  # 购买数量
+  default_quantity: 1
+  bulk_quantity: 5
+
+# --------------------------------------------
+# 3. 收货地址
+# --------------------------------------------
+addresses:
+  # 默认地址
+  default_address:
+    name: "张三"
+    tel: "13800138000"
+    province: "江西省"
+    city: "南昌市"
+    county: "东湖区"
+    address: "测试街道123号"
+    is_default: 1
+
+  # 第二个地址
+  second_address:
+    name: "李四"
+    tel: "13900139000"
+    province: "广东省"
+    city: "深圳市"
+    county: "南山区"
+    address: "科技园南路456号"
+    is_default: 0
+
+  # 编辑用地址
+  edit_address:
+    name: "王五"
+    tel: "13700137000"
+    province: "浙江省"
+    city: "杭州市"
+    county: "西湖区"
+    address: "文三路789号"
+    is_default: 0
+
+# --------------------------------------------
+# 4. 订单配置
+# --------------------------------------------
+order:
+  # 默认购买数量
+  default_quantity: 1
+
+  # 订单状态
+  status_list:
+    - "全部"
+    - "待付款"
+    - "待发货"
+    - "待收货"
+    - "已完成"
+
+  # 支付方式
+  payment_methods:
+    - "微信支付"
+    - "支付宝"
+    - "银联支付"
+
+# --------------------------------------------
+# 5. 购物车配置
+# --------------------------------------------
+cart:
+  # 修改后的数量
+  update_quantity: 3
+
+  # 批量删除数量阈值
+  max_items_for_test: 10
+
+# --------------------------------------------
+# 6. 消息配置
+# --------------------------------------------
+message:
+  # 测试消息标题
+  test_title: "系统通知"
+
+  # 测试消息内容
+  test_content: "这是一条测试消息"
+
+# --------------------------------------------
+# 7. 个人中心配置
+# --------------------------------------------
+profile:
+  # 修改后的昵称
+  new_nickname: "新昵称测试"
+
+  # 头像路径（相对项目根目录）
+  avatar_path: "data/test_avatar.jpg"
+
+  # 修改密码
+  password_change:
+    old_password: "123456"
+    new_password: "123456"
+    confirm_password: "123456"
+
+# --------------------------------------------
+# 8. 页面 URL 路径（相对路径）
+# --------------------------------------------
+urls:
+  home: "/"
+  login: "/index.php?s=/index/user/logininfo.html"
+  cart: "/index.php?s=/index/cart/index.html"
+  order_list: "/index.php?s=/index/order/index.html"
+  address: "/index.php?s=/index/useraddress/index.html"
+  collect: "/index.php?s=/index/usergoodsfavor/index.html"
+  message: "/index.php?s=/index/message/index.html"
+  profile: "/index.php?s=/index/user/index.html"
+  product_list: "/index.php?s=/index/search/index.html"
+
+# --------------------------------------------
+# 9. 浏览器配置
+# --------------------------------------------
+browser:
+  # 默认浏览器
+  default: "chrome"
+
+  # 可选浏览器
+  supported:
+    - "chrome"
+    - "firefox"
+    - "edge"
+
+  # 窗口大小
+  window_size:
+    width: 1920
+    height: 1080
+
+  # 隐式等待（秒）
+  implicit_wait: 10
+
+  # 页面加载超时（秒）
+  page_load_timeout: 30
+
+# --------------------------------------------
+# 10. API 配置
+# --------------------------------------------
+api:
+  # 基础 URL
+  base_url: "http://shop-xo.hctestedu.com"
+
+  # API 路径前缀
+  prefix: "/index.php?s="
+
+  # 超时配置
+  timeout:
+    connect: 5
+    read: 30
+
+  # 重试次数
+  retries: 3
+
+  # 请求头
+  headers:
+    Accept: "application/json"
+    Content-Type: "application/json"
